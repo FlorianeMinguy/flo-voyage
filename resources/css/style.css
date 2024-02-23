@@ -1,0 +1,358 @@
+/* GENERAL ---------------------------------------------------------------------------------------------------------------------------------*/
+:root {
+  --blue: rgba(2, 184, 221, 1);
+  --orange:  rgba(255, 122, 0, 1);
+  --height-header: 120px;
+  --font-size-xl : 3rem;
+  --font-size-lg : 2.75rem;
+  --font-size-md : 1.5rem;
+  --font-size-xs : 0.9rem;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+img {
+  display: block;           /* Improve media defaults */
+  max-width: 100%;          /* Avoid image overflows */
+  height:auto;              /* Image responsive */
+}
+
+p, h1, h2, h3, h4 {
+  overflow-wrap: break-word;  /* avoid text overflows by autorizing break-words */
+  hyphens:auto; /* break words respecting traditional rules and adding hyphens (traits d'union) */
+}
+
+h1,
+h2,
+h3,
+h4,
+a {
+  color: #444;
+}
+
+h2, 
+h3, 
+h4 {
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: "Crete Round", serif;
+  font-size: var(--font-size-lg);
+  line-height: var(--height-header);
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+}
+
+p {
+  line-height: 1.25rem;
+  color: #777;
+}
+small {
+  font-size: var(--font-size-xs);
+  font-style: italic;
+}
+
+input, button {
+  font: inherit;  /* Remove built-in form typography styles (incoherents with our design) */
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+.orange {
+  color: var(--orange);
+}
+
+.container {
+  max-width: 1140px;
+  padding: 0 10px;
+}
+
+
+/* HEADER ---------------------------------------------------------------------------------------------------------------------------------*/
+/* en-tête sticky-top */
+header {
+  position: sticky;
+  top:0;
+  background-color: #fff;
+  box-shadow: inset 0px -1px 0px #c5c5c6;
+  z-index: 3;
+}
+
+.navlinks-container > a {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0 0.5rem;
+  text-decoration: underline rgba(51, 153, 204,0);
+  text-underline-position: under;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 0.2s ease-out;
+}
+.navlinks-container > a:hover{
+  text-decoration-color: var(--blue);
+}
+
+@media (max-width: 991px) {
+  nav {
+    padding: 1rem 1.25rem;
+    position: relative;
+  }
+
+  /* hamburger */
+  .hamburger {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .hamburger span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transition: opacity 0.3s 0.15s ease-out;
+  }
+  .hamburger span:nth-child(1),
+  .hamburger span:nth-child(3) {
+    transition: transform 0.3s ease-out;
+  }
+  .hamburger span:nth-child(1) {
+    transform: translateY(0.5rem);
+  }
+  .hamburger span:nth-child(3) {
+    transform: translateY(-0.5rem);
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: translate(0) rotate(135deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transition: opacity 0s ease-out;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: translate(0) rotate(-135deg);
+  }
+
+  .navlinks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: var(--height-header);
+    left: 0;
+    height: calc(100vh - var(--height-header));
+    padding: 15px 150px 15px 20px;
+    background: rgba(250, 250, 250, 0.95);
+    border-right: 1px solid #c5c5c6;
+    transform: translate(-105%);
+    transition: transform 0.3s ease-out;
+    z-index:2;
+  }
+ 
+  .open {
+    transform: translate(0%);
+  }
+
+  .navlinks-container a {
+    margin: 0.8rem 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .hamburger {
+    display: none;
+  }
+  .main-navlinks {
+    margin-left: auto;
+  }
+}
+
+/* MAIN-IMAGE-----------------------------------------------------------------------------------------------------------------------------*/
+#main-image {
+  height: 580px;
+  background: url('../images/main.jpg') center;
+  background-size: cover;
+}
+#main-image h2 {
+  font-weight: normal;
+  padding: 150px 0 40px 0;
+  margin-bottom: 20px;
+}
+.button {
+  color: #fff;
+  border-radius: 3px;
+}
+.button-1 {
+  background-color: var(--orange);
+  display: block;
+  width: 120px;
+  height: 50px;
+  font-size: 1.25rem;
+  line-height: 3rem;
+  margin: 0 auto;
+}
+.button-1:hover {
+  background-color: var(--blue);
+}
+
+/* STEPS-----------------------------------------------------------------------------------------------------------------------------*/
+#steps ul {
+  margin: 80px 0;
+}
+#steps li {
+  width: 300px;
+  margin: 5px auto;
+  padding-top: 140px;
+  border: 6px solid #eee;
+  background-position-y: 5%;
+}
+
+#steps h3,
+#steps p {
+  margin-bottom:20px;
+}
+
+#step-1 {
+  background: url('../images/steps-icon-1.png') no-repeat top center;
+}
+#step-2 {
+  background: url('../images/steps-icon-2.png') no-repeat top center;
+}
+#step-3 {
+  background: url('../images/steps-icon-3.png') no-repeat top center;
+}
+
+/* POSSIBILITIES----------------------------------------------------------------------------------------*/
+#possibilities {
+  background-color: #efefef;
+  padding: 60px 0;
+}
+#possibilities article {
+  width: 460px;
+  height: 270px;
+  border-radius: 10px;
+  margin: 5px auto;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px 0 0 10px;
+  height: 100%;
+  width: 190px;
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: center;
+  z-index: 2;
+}
+article h3 {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom:20px;
+}
+#possibilities p {
+  margin: 20px 0;
+}
+.button-2 {
+  background-color: var(--orange);
+  line-height: 1rem;
+  padding: 6px 20px;
+}
+.button-2:hover {
+  background-color: var(--blue);
+}
+
+/* CONTACT------------------------------------------------------------------------------------------*/
+#contact {
+  padding: 60px 0;
+  text-align: center;
+}
+#contact h2 {
+  font-size: 2rem;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #02b8dd;
+  width: 400px;
+  margin: 0 auto 20px auto;
+}
+form {
+  margin: 60px 0 20px 0;
+}
+
+form > * {
+  margin-bottom: 10px;
+}
+
+label, input {
+  padding: 10px;
+  font-size: 1.25rem;
+}
+
+label {
+  color: #777;
+  font-weight: bold;
+  text-align: end;
+  margin-right: 5px;
+}
+
+input[type="text"] {
+  border: 2px solid #ddd;
+  border-radius: 3px;
+}
+
+.button-3 {
+  background-color: var(--blue);
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 11px;
+}
+
+.button-3:hover {
+  background-color: #444;
+}
+
+/* FOOTER-------------------------------------------------------------------------------------------*/
+footer {
+  height: 260px;
+  background-color: #444;
+  text-align: center;
+}
+footer h1 {
+  color: #fff;
+  padding-top: 80px;
+}
+.copyright {
+  font-weight: bold;
+  padding-top: 30 px;
+  color: #777;
+}
