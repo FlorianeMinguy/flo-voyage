@@ -103,6 +103,7 @@ header {
 }
 
 .navlinks-container > a {
+  font-size: 1.1rem;
   text-transform: uppercase;
   font-weight: bold;
   margin: 0 0.5rem;
@@ -230,7 +231,8 @@ header {
 }
 #steps li {
   width: 300px;
-  margin: 5px auto;
+  height: 100%;
+  margin: 15px;
   padding-top: 140px;
   border: 6px solid #eee;
   background-position-y: 5%;
@@ -260,7 +262,7 @@ header {
   width: 460px;
   height: 270px;
   border-radius: 10px;
-  margin: 5px auto;
+  margin: 15px;
   position: relative;
 }
 .overlay {
